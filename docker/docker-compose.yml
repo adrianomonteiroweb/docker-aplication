@@ -1,5 +1,13 @@
 version: '3' 
 services:
+  tests:
+    build: ./todo-app/tests
+    image: todotests
+    restart: always
+    environment:
+      FRONT_HOST: front-end
+    depends_on:
+      - front-end
   back-end:
     build: ./todo-app/back-end
     image: todobackend
@@ -16,11 +24,3 @@ services:
       REACT_APP_API_HOST: back-end
     depends_on:
       - back-end
-  tests:
-    build: ./todo-app/tests
-    image: todotests
-    restart: always
-    environment:
-      FRONT_HOST: front-end
-    depends_on:
-      - front-end
