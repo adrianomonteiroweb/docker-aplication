@@ -1,1 +1,1 @@
-docker-compose up ./docker -d
+docker-compose up -d back-end
